@@ -11,6 +11,7 @@ export interface Player {
   isStar: boolean;
   gender: string;
   number: number;
+  position: string;
 }
 
 export default async function PlayersPage() {

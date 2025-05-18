@@ -4,7 +4,6 @@ import Input from "@/components/Input";
 import axios from "axios";
 import { Loader2 } from "lucide-react";
 
-
 import { useState } from "react";
 import toast from "react-hot-toast";
 
@@ -14,7 +13,6 @@ interface CloudinaryUploadResponse {
 }
 
 const AddPlayer = () => {
- 
   const [loading, setLoading] = useState(false);
   const [photo, setPhoto] = useState<File | null>(null);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
@@ -66,9 +64,14 @@ const AddPlayer = () => {
     const name = form.get("name") as string;
     const gender = form.get("gender") as string;
     const type = form.get("type") as "not-star" | "star";
+    const position = form.get("position") as
+      | "goalkeeper"
+      | "defender"
+      | "midfielder"
+      | "striker";
     const playerNumber = form.get("playerNumber") as string;
 
-    if (!name || !gender || !type || !playerNumber || !photo) {
+    if (!name || !gender || !type || !playerNumber || !photo || !position) {
       toast.error("Please fill all the fields including photo");
       setLoading(false);
       return;
@@ -82,6 +85,7 @@ const AddPlayer = () => {
         isStar: type === "star",
         image: imageUrl,
         playerNumber,
+        position
       };
 
       await axios.post(
@@ -117,6 +121,9 @@ const AddPlayer = () => {
               type={"text"}
               name="name"
             />
+          </div>
+
+          <div className="w-full flex flex-col sm:flex-row gap-4">
             <div className="flex-1">
               <label
                 htmlFor="gender"
@@ -130,6 +137,23 @@ const AddPlayer = () => {
               >
                 <option value="male">Male</option>
                 <option value="female">Female</option>
+              </select>
+            </div>
+            <div className="flex-1">
+              <label
+                htmlFor="gender"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                Player Position
+              </label>
+              <select
+                name="position"
+                className="flex-1 w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-700 "
+              >
+                <option value="defender">Defender</option>
+                <option value="striker">Striker</option>
+                <option value="midfielder">Midfielder</option>
+                <option value="goalkeeper">Goalkeeper</option>
               </select>
             </div>
           </div>

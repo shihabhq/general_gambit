@@ -181,7 +181,7 @@ const CreateTeam = () => {
               <img
                 alt="captain image"
                 src={previewImage}
-                className=" min-w-32 min-h-32  object-cover border-2 border-btncol"
+                className="  max-w-56  object-cover border-2 border-btncol"
               />
             )}
           </div>

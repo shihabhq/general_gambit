@@ -1,6 +1,7 @@
 "use client";
 import { Player } from "@/app/(auction)/players/page";
 import { Star, DollarSign } from "lucide-react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
@@ -14,7 +15,7 @@ export default function PlayerCard({ player }: PlayerCardProps) {
   const [loading, setLoading] = useState(false);
   const handleDelete = async () => {
     const confirmed = window.confirm(
-      `Are you sure you want to delete ${player.name}?`
+      `Are you sure you want to delete ${player?.name}?`
     );
     if (!confirmed) return;
 
@@ -45,19 +46,16 @@ export default function PlayerCard({ player }: PlayerCardProps) {
       {/* Image & Badges */}
       <div className="relative">
         <div className="h-36 bg-gray-200 relative">
-          <img
-            src={player.image || "/placeholder.svg"}
-            alt={player.name}
+          <Image
+            src={player?.image || "/placeholder.svg"}
+            alt={player?.name}
             className="object-cover w-full h-full"
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.src = `/placeholder.svg?height=144&width=256`;
-            }}
+            fill
           />
         </div>
 
         <div className="absolute top-2 right-2 flex gap-1">
-          {player.isStar && (
+          {player?.isStar && (
             <span
               className="bg-yellow-400 text-yellow-800 p-1 rounded-full"
               title="Star Player"
@@ -71,18 +69,21 @@ export default function PlayerCard({ player }: PlayerCardProps) {
       {/* Info Section */}
       <div className="p-3 flex flex-col justify-between flex-1">
         <div>
-          <div className="flex justify-between items-start">
+          <div className="flex flex-col justify-between items-start">
             <h3 className="font-medium text-gray-800 truncate">
-              {player.name}
+              {player?.name}
+            </h3>
+            <h3 className="font-medium text-sm text-secondary truncate">
+              {player?.position}
             </h3>
           </div>
 
           <div className="mt-2 text-sm min-h-[40px]">
-            {player.isSold ? (
+            {player?.isSold ? (
               <div className="flex flex-col gap-1">
                 <div className="flex items-center text-green-700">
                   <DollarSign className="h-3.5 w-3.5 mr-1" />
-                  <span>{player.price?.toLocaleString()}</span>
+                  <span>{player?.price?.toLocaleString()}</span>
                 </div>
                 <div className="text-gray-500 text-xs">
                   Sold to: <span className="font-medium">{player.soldTo}</span>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Users, UserPlus, Users2, User, X } from "lucide-react";
+import { Users, UserPlus, Users2, User, X, Home } from "lucide-react";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -13,6 +13,7 @@ export default function AdminSidebar({ isOpen, closeSidebar }: SidebarProps) {
   const pathname = usePathname();
 
   const links = [
+    { href: "/", label: "Home", icon: Home },
     { href: "/male", label: "Male Auction", icon: Users },
     { href: "/female", label: "Female Auction", icon: Users2 },
     { href: "/add-players", label: "Add Players", icon: UserPlus },
@@ -41,7 +42,7 @@ export default function AdminSidebar({ isOpen, closeSidebar }: SidebarProps) {
           {links.map((link) => {
             const Icon = link.icon;
             return (
-              <li key={link.href} className="mb-2">
+              <li key={link.href} onClick={closeSidebar} className="mb-2">
                 <Link
                   href={link.href}
                   className={`flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 hover:text-[#2c5032] transition-colors ${
