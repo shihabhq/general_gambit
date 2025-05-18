@@ -85,7 +85,7 @@ const AddPlayer = () => {
         isStar: type === "star",
         image: imageUrl,
         playerNumber,
-        position
+        position,
       };
 
       await axios.post(
@@ -117,7 +117,7 @@ const AddPlayer = () => {
           <div className="w-full flex flex-col sm:flex-row gap-4">
             <Input
               label={"Player Name"}
-              placeholder={"Team Name"}
+              placeholder={"Player Name"}
               type={"text"}
               name="name"
             />

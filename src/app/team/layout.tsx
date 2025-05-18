@@ -4,6 +4,7 @@ import "../globals.css";
 import TeamNavbar from "@/components/TeamNavbar";
 import { redirect } from "next/navigation";
 import { getServerUser } from "../_lib/getServerUser";
+import TeamProvider from "@/contexts/TeamContexts";
 
 export const metadata: Metadata = {
   title: "My Team - Auction Platform",
@@ -33,7 +34,9 @@ export default async function TeamLayout({
   return (
     <div className="flex flex-col min-h-screen">
       <TeamNavbar team={teamData} />
-      <div className="flex-1">{children}</div>
+      <div className="flex-1">
+        <TeamProvider team={teamData}>{children}</TeamProvider>
+      </div>
     </div>
   );
 }

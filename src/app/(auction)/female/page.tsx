@@ -2,14 +2,14 @@ import Auction from "@/components/AuctionData";
 import PlayerSlider from "@/components/PlayerSlider";
 import { Player } from "../players/page";
 
-const MaleAuction = async () => {
+const FemaleAuction = async () => {
   const maleRes = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/male`
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/female`
   );
 
-  const malePlayers: Player[] = await maleRes.json();
+  const femalePlayers: Player[] = await maleRes.json();
 
-  if (!malePlayers || malePlayers.length === 0) {
+  if (!femalePlayers || femalePlayers.length === 0) {
     return (
       <h1 className="font-bold text-6xl text-center my-24">
         No Players available to auction
@@ -20,9 +20,9 @@ const MaleAuction = async () => {
   return (
     <div className="">
       <Auction />
-      <PlayerSlider members={malePlayers} />
+      <PlayerSlider members={femalePlayers} />
     </div>
   );
 };
 
-export default MaleAuction;
+export default FemaleAuction;

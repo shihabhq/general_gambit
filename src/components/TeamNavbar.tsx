@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import Link from "next/link";
-import { Home, Users, LogOut, DollarSign, Menu, X } from "lucide-react";
+import { Home, LogOut, Menu, X, SquareDashedMousePointer } from "lucide-react";
 import LogoutButton from "./LogOutButton";
 
 interface Team {
@@ -59,22 +59,16 @@ export default function TeamNavbar({ team }: TeamNavbarProps) {
               <span>Home</span>
             </Link>
             <Link
-              href="/team/members"
+              href="/team/dashboard"
               className="flex items-center px-3 py-2 rounded-md hover:bg-[#3c6142] transition-colors"
             >
-              <Users className="h-5 w-5 mr-2" />
-              <span>Members</span>
+              <SquareDashedMousePointer className="h-5 w-5 mr-2" />
+              <span>Dashboard</span>
             </Link>
           </nav>
 
           {/* Right: Balance and Logout */}
           <div className="flex items-center space-x-4">
-            <div className="flex items-center bg-[#3c6142] px-3 py-1 rounded-md">
-              <DollarSign className="h-4 w-4 text-[#e08a42] mr-1" />
-              <span className="font-medium">
-                {team.balance.toLocaleString()}
-              </span>
-            </div>
             <button className="flex items-center px-3 py-2 rounded-md bg-[#e08a42] hover:bg-[#d07a32] transition-colors">
               <LogOut className="h-5 w-5 mr-2" />
               <span>Logout</span>
@@ -106,12 +100,6 @@ export default function TeamNavbar({ team }: TeamNavbarProps) {
 
             {/* Right: Balance and Menu Toggle */}
             <div className="flex items-center space-x-2">
-              <div className="flex items-center bg-[#3c6142] px-2 py-1 rounded-md text-sm">
-                <DollarSign className="h-3 w-3 text-[#e08a42] mr-1" />
-                <span className="font-medium">
-                  {team.balance.toLocaleString()}
-                </span>
-              </div>
               <button
                 onClick={toggleMobileMenu}
                 className="p-2 rounded-md hover:bg-[#3c6142] transition-colors"
@@ -138,12 +126,12 @@ export default function TeamNavbar({ team }: TeamNavbarProps) {
                 <span>Home</span>
               </Link>
               <Link
-                href="/my-team/members"
+                href="/my-team/dashboard"
                 className="flex items-center px-3 py-2 rounded-md hover:bg-[#3c6142] transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <Users className="h-5 w-5 mr-2" />
-                <span>Members</span>
+                <SquareDashedMousePointer className="h-5 w-5 mr-2" />
+                <span>Dashboard</span>
               </Link>
               <LogoutButton />
             </nav>

@@ -86,7 +86,7 @@ export default function PlayerCard({ player }: PlayerCardProps) {
                   <span>{player?.price?.toLocaleString()}</span>
                 </div>
                 <div className="text-gray-500 text-xs">
-                  Sold to: <span className="font-medium">{player.soldTo}</span>
+                  Invoice: <span className="font-medium">{player.soldTo}</span>
                 </div>
               </div>
             ) : (
