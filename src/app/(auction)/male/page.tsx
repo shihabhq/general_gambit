@@ -4,7 +4,7 @@ import { Player } from "../players/page";
 
 const MaleAuction = async () => {
   const maleRes = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/male`
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/male`,{ next: { revalidate: 0 } }
   );
 
   const malePlayers: Player[] = await maleRes.json();

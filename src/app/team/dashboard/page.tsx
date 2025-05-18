@@ -9,15 +9,8 @@ export default async function DashboardPage() {
   if (!user) redirect("/login");
 
   const PlayerRes = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/teamplayers?email=${user.email}`
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/teamplayers?email=${user.email}`,{ next: { revalidate: 0 } }
   );
-  // const teamDataRes = await fetch(
-  //   `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/team?email=${user.email}`
-  // );
-
-  // const teamData = await teamDataRes.json();
-
-  // console.log(teamData);
 
   const fullData: { team: Team; players: Player[] } = await PlayerRes.json();
   

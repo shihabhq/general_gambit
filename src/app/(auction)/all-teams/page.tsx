@@ -1,4 +1,4 @@
-import {  User, User2 } from "lucide-react";
+import { User, User2 } from "lucide-react";
 import { Player } from "../players/page";
 import TeamCard from "@/components/TeamCard";
 
@@ -16,7 +16,8 @@ export type Team = {
 
 const AllTeams = async () => {
   const teamRes = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/teams`
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/teams`,
+    { next: { revalidate: 0 } }
   );
   const teams: Team[] = await teamRes.json();
 

@@ -16,10 +16,12 @@ export interface Player {
 
 export default async function PlayersPage() {
   const maleRes = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/male`
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/male`,
+    { next: { revalidate: 0 } }
   );
   const femaleRes = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/female`
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/female`,
+    { next: { revalidate: 0 } }
   );
 
   const malePlayers: Player[] = await maleRes.json();

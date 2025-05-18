@@ -20,7 +20,7 @@ export default async function TeamLayout({
   if (!user) redirect("/login");
 
   const teamDataRes = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/team?email=${user.email}`
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/team?email=${user.email}`,{ next: { revalidate: 0 } }
   );
   if (!teamDataRes.ok) {
     return (
