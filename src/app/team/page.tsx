@@ -34,7 +34,6 @@ const Team = () => {
     }
     if (bidAmount <= 0 || bidAmount > teamData?.balance) {
       toast.error("Not enough balance");
-      console.log(bidAmount, teamData?.balance);
       return;
     }
 
