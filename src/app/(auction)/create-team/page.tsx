@@ -99,7 +99,7 @@ const CreateTeam = () => {
       );
 
       toast.success("Team created successfully!");
-      console.log("Created team:", response.data);
+    
       router.push("/");
     } catch (error) {
       console.error(error);

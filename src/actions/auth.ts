@@ -32,7 +32,7 @@ export const signUpAction = async (email: string, password: string) => {
 
     return { errorMsg: null };
   } catch (error) {
-    console.log(error);
+  
     return handleError(error);
   }
 };

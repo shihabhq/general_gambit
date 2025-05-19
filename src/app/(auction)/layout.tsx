@@ -13,12 +13,12 @@ export default function AuctionLayout({
 
   const toggleSidebar = () => {
     setSidebarOpen((prevState) => !prevState);
-    console.log("Toggling sidebar, new state:", !sidebarOpen);
+   
   };
 
   const closeSidebar = () => {
     setSidebarOpen(false);
-    console.log("Closing sidebar");
+  
   };
 
   return (
