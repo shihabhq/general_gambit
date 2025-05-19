@@ -32,6 +32,11 @@ const Team = () => {
       toast.error("Team data is incomplete.");
       return;
     }
+    if (bidAmount <= 0 || bidAmount > teamData?.balance) {
+      toast.error("Not enough balance");
+      console.log(bidAmount, teamData?.balance);
+      return;
+    }
 
     const payload = {
       team: teamData.name,
