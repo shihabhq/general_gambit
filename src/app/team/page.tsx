@@ -47,7 +47,7 @@ const Team = () => {
     <div className="flex min-h-[80vh] flex-col items-center justify-center gap-8">
       <h1 className="text-6xl font-semibold text-gray-800">Bid: {bidAmount}</h1>
 
-      <div className="flex gap-4">
+      <div className="flex gap-4 flex-wrap items-center justify-center">
         <button
           onClick={() => handleChange(-50)}
           className="px-6 py-3 bg-red-500 hover:opacity-85 cursor-pointer text-white text-lg rounded-xl shadow-md transition"

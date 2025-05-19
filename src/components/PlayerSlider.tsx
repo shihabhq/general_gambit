@@ -5,12 +5,7 @@ import socket from "@/app/_lib/socket";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
-export default function PlayerSlider({
-  members,
-
-}: {
-  members: Player[];
-}) {
+export default function PlayerSlider({ members }: { members: Player[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const filteredMembers = members.filter((member) => !member.isSold);
   const [players, setPlayers] = useState<Player[]>(filteredMembers);
@@ -83,6 +78,9 @@ export default function PlayerSlider({
           alt={currentPlayer.name}
           className="w-full h-full object-contain max-h-[80vh] mx-auto"
         />
+        <h1 className="text-xl font-semibold my-2">
+          Remaining Players: <span className="text-primary">{players?.length || "0"}</span>
+        </h1>
 
         {currentPlayer.isStar && (
           <div className="absolute top-4 right-4 bg-[#e08a42] text-white px-3 py-1 rounded-full text-sm font-bold shadow-md">

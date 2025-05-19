@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import Link from "next/link";
-import { Home, LogOut, Menu, X, SquareDashedMousePointer } from "lucide-react";
+import { Home, Menu, X, SquareDashedMousePointer } from "lucide-react";
 import LogoutButton from "./LogOutButton";
 
 interface Team {
@@ -68,12 +68,7 @@ export default function TeamNavbar({ team }: TeamNavbarProps) {
           </nav>
 
           {/* Right: Balance and Logout */}
-          <div className="flex items-center space-x-4">
-            <button className="flex items-center px-3 py-2 rounded-md bg-[#e08a42] hover:bg-[#d07a32] transition-colors">
-              <LogOut className="h-5 w-5 mr-2" />
-              <span>Logout</span>
-            </button>
-          </div>
+          <LogoutButton />
         </div>
 
         {/* Mobile Navbar */}
@@ -126,7 +121,7 @@ export default function TeamNavbar({ team }: TeamNavbarProps) {
                 <span>Home</span>
               </Link>
               <Link
-                href="/my-team/dashboard"
+                href="/team/dashboard"
                 className="flex items-center px-3 py-2 rounded-md hover:bg-[#3c6142] transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >

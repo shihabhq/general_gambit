@@ -38,7 +38,7 @@ const Auction = () => {
   };
 
   return (
-    <div className="max-w-xl min-w-[25%] absolute top-20 right-20 mx-auto my-6">
+    <div className="max-w-xl min-w-[25%] xl:absolute top-20 right-20 mx-auto my-6">
       <div className="border-3 relative border-[#2c5032] rounded-lg overflow-hidden shadow-lg">
         <button
           onClick={handleReset}
