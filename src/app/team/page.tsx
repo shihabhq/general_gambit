@@ -54,44 +54,44 @@ const Team = () => {
       <div className="flex gap-4 flex-wrap items-center justify-center">
         <button
           onClick={() => handleChange(-50)}
-          className="px-6 py-3 bg-red-500 hover:opacity-85 cursor-pointer text-white text-lg rounded-xl shadow-md transition"
+          className="px-6 active:translate-y-1 py-3 bg-red-500 hover:opacity-85 cursor-pointer text-white text-lg rounded-xl shadow-md transition"
         >
           -50
         </button>
         <button
           onClick={() => handleChange(-25)}
-          className="px-6 py-3 bg-red-500 hover:opacity-85 cursor-pointer text-white text-lg rounded-xl shadow-md transition"
+          className="px-6 py-3 active:translate-y-1 bg-red-500 hover:opacity-85 cursor-pointer text-white text-lg rounded-xl shadow-md transition"
         >
           -25
         </button>
         <button
           onClick={() => handleChange(10)}
-          className="px-6 py-3 bg-primary hover:opacity-85 cursor-pointer text-white text-lg rounded-xl shadow-md transition"
+          className="px-6 active:translate-y-1 py-3 bg-primary hover:opacity-85 cursor-pointer text-white text-lg rounded-xl shadow-md transition"
         >
           +10
         </button>
         <button
           onClick={() => handleChange(20)}
-          className="px-6 py-3 bg-primary hover:opacity-85 cursor-pointer text-white text-lg rounded-xl shadow-md transition"
+          className="px-6 py-3 active:translate-y-1 bg-primary hover:opacity-85 cursor-pointer text-white text-lg rounded-xl shadow-md transition"
         >
           +20
         </button>
         <button
           onClick={() => handleChange(50)}
-          className="px-6 py-3 bg-primary hover:opacity-85 cursor-pointer text-white text-lg rounded-xl shadow-md transition"
+          className="px-6 py-3 active:translate-y-1 bg-primary hover:opacity-85 cursor-pointer text-white text-lg rounded-xl shadow-md transition"
         >
           +50
         </button>
         <button
           onClick={() => handleChange(100)}
-          className="px-6 py-3 bg-primary hover:opacity-85 cursor-pointer text-white text-lg rounded-xl shadow-md transition"
+          className="px-6 py-3 active:translate-y-1 bg-primary hover:opacity-85 cursor-pointer text-white text-lg rounded-xl shadow-md transition"
         >
           +100
         </button>
       </div>
       <button
         onClick={handleGiveBid}
-        className="px-6 py-3 bg-secondary hover:opacity-85 cursor-pointer text-white text-lg rounded-xl shadow-md transition"
+        className="px-6 py-3 active:translate-y-1 bg-secondary hover:opacity-85 cursor-pointer text-white text-lg rounded-xl shadow-md transition"
       >
         Give Bid
       </button>

@@ -46,13 +46,13 @@ function TeamCard({ team }: { team: Team }) {
         <div className="space-y-3 max-h-60 overflow-y-auto pr-1">
           {team.players.map((player) => (
             <div
-              key={player.name}
+              key={player?.name}
               className="flex items-center border-b border-gray-100 pb-2"
             >
               <div className="relative h-8 w-8 rounded-full overflow-hidden mr-3">
                 <img
-                  src={player.image || "/placeholder.svg"}
-                  alt={player.name}
+                  src={player?.image || "/placeholder.svg"}
+                  alt={player?.name}
                   className="object-cover"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
@@ -62,15 +62,15 @@ function TeamCard({ team }: { team: Team }) {
               </div>
               <div className="flex-1">
                 <div className="flex items-center">
-                  <span className="font-medium text-sm">{player.name}</span>
-                  {player.isStar && (
+                  <span className="font-medium text-sm">{player?.name}</span>
+                  {player?.isStar && (
                     <span className="ml-1 text-yellow-500 text-xs">★</span>
                   )}
                 </div>
-                <div className="text-xs text-gray-500">#{player.number}</div>
+                <div className="text-xs text-gray-500">#{player?.number}</div>
               </div>
               <div className="text-sm font-medium text-[#e08a42]">
-                ${player.price?.toLocaleString() || "N/A"}
+                ${player?.price?.toLocaleString() || "N/A"}
               </div>
             </div>
           ))}
